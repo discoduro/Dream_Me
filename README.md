@@ -50,6 +50,16 @@ Justificacion
 Teniendo en cuenta nuestra vida cotidiana y de cómo la automatización de sistemas está influyendo en ella, se creó la necesidas de realizar un sistema web transaccional, que permitiera a diferentes tipos de usuarios realizar compras, pedidos y consultas de diversos tipos de prendas para vestir por medio de una página web. 
 Teniendo en cuenta lo dicho anteriormente, es importante resaltar que las nuevas formas de realizar compras tuvo un cambio agigantado y es por eso que se desarrollo un nuevo sistema para adquirir prendas de forma segura, brindándoles un sitio web con facilidad de manejo, donde se identifiquen características como formas de pago, colores,  precios, entre otras. La realización de este proyecto ayudará a los usuarios a comprar de una manera segura y al alcance de todos. Cualquier persona que quiera comprar una prenda de ropa y que tenga a su alcance un celular inteligente o una computadora podrá realizar su compra desde la comodidad de su hogar, haciendo así un sistema mas eficiente y eficaz.
 
+# Dream_Me v1.2
+Sistema o tienda en linea desarrollada con MySql, php, jQuery, Bootstrap y Ajax
+
+# Datos de la cuenta del administrador
+```
+Usuario: admin
+```
+```
+Clave: admin
+```
 
 
 
