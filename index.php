@@ -61,13 +61,13 @@
                   include 'library/configServer.php';
                   include 'library/consulSQL.php';
                   $consulta= ejecutarSQL::consultar("SELECT * FROM producto WHERE Stock > 0 AND Estado='Activo' ORDER BY id DESC LIMIT 7");
-                  $totalproductos = mysqli_num_rows($consulta);
+                  $totalproductos = mysqli_num_rows($consulta); // mysqli_num_rows($consulta) obtiene el numero de filas retornadas por la consulta  
                   if($totalproductos>0){
-                      while($fila=mysqli_fetch_array($consulta, MYSQLI_ASSOC)){
+                      while($fila=mysqli_fetch_array($consulta, MYSQLI_ASSOC)){ // mysqli_fetch_array($consulta, MYSQLI_ASSOC) obtiene una fila de resultados como un array asociativo, numérico, o ambos   
                 ?>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                      <div class="thumbnail rounded-4">
-                       <img class="img-product" src="assets/img-products/<?php if($fila['Imagen']!="" && is_file("./assets/img-products/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>">
+                       <img class="img-product" src="assets/img-products/<?php if($fila['Imagen']!="" && is_file("./assets/img-products/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>"> // is_file("./assets/img-products/".$fila['Imagen']) verifica si existe la imagen en la ruta especificada    
                        <div class="caption">
                        		<h3><?php echo $fila['Marca']; ?></h3>
                             <p><?php echo $fila['NombreProd']; ?></p>
