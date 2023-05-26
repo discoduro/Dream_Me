@@ -5,7 +5,7 @@ class ejecutarSQL {
         if(!$con =  mysqli_real_connect(SERVER,USER,BD,PASS)){
             $con = mysqli_init();
             mysqli_ssl_set($con,NULL,NULL, "/assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-            mysqli_real_connect($con, 'srvdreamme.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', MYSQLI_CLIENT_SSL);
+            mysqli_real_connect($con, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', MYSQLI_CLIENT_SSL);
             die("Ha ocurrido un error al conectar a la base de datos.");
     }
         mysqli_set_charset($con, "utf8");
