@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'dreamme'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2820F934D9BD459BAE37E85202DCC662 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AD657A2CF8474B6DB4747A3AB2ADD746 }}
           package: .
