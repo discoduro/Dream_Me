@@ -1,6 +1,6 @@
 <?php 
-    session_start(); 
-    error_reporting(E_PARSE);
+    session_start(); // Iniciando Sesion 
+    error_reporting(E_PARSE); // Desactivar notificaciones de error
 ?>
 <nav id="navbar-auto-hidden">
         <div class="row hidden-xs">
@@ -13,7 +13,7 @@
                   <a href="index.php" class="table-cell-td">Inicio</a>
                   <a href="product.php" class="table-cell-td">Productos</a>
                   <?php
-                      if(!$_SESSION['nombreAdmin']==""){
+                      if(!$_SESSION['nombreAdmin']==""){ // $_SESSION['nombreAdmin'] verifica si existe la variable de sesión nombreAdmin
                           echo ' 
                               <a href="carrito.php" class="table-cell-td">Carrito</a>
                               <a href="configAdmin.php" class="table-cell-td">Administración</a>
@@ -125,7 +125,7 @@
     
     <div id="mobile-menu-list" class="hidden-sm hidden-md hidden-lg">
         <br>
-        <h3 class="text-center tittles-pages-logo">STORE</h3>
+        <h3 class="text-center tittles-pages-logo">Dream_Me</h3>
         <button class="btn btn-default button-mobile-menu" id="button-close-mobile-menu">
         <i class="fa fa-times"></i>
         </button>
