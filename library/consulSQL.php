@@ -7,10 +7,11 @@ class ejecutarSQL {
             mysqli_ssl_set($con,NULL,NULL, "/assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
             mysqli_real_connect($con, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', MYSQLI_CLIENT_SSL);
             die("Ha ocurrido un error al conectar a la base de datos.");
-    }
+    
         mysqli_set_charset($con, "utf8");
         return $con;
     }
+}
 
     public static function consultar($query) {
         if (!$consul = mysqli_query(ejecutarSQL::conectar(), $query)) {
