@@ -67,7 +67,7 @@
                 ?>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                      <div class="thumbnail rounded-4">
-                       <img class="img-product" src="assets/img-products/<?php if($fila['Imagen']!="" && is_file("./assets/img-products/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>"> // is_file("./assets/img-products/".$fila['Imagen']) verifica si existe la imagen en la ruta especificada    
+                       <img class="img-product" src="assets/img-products/<?php if($fila['Imagen']!="" && is_file("./assets/img-products/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>">     
                        <div class="caption">
                        		<h3><?php echo $fila['Marca']; ?></h3>
                             <p><?php echo $fila['NombreProd']; ?></p>
@@ -103,7 +103,7 @@
                    <article style="margin-top:5%;">
                         <p><i class="fa fa-users fa-4x"></i></p>
                         <h3>Registrate</h3>
-                        <p>Registrate como cliente de <span class="tittles-pages-logo">STORE</span> en un sencillo formulario para poder completar tus pedidos</p>
+                        <p>Registrate como cliente de <span class="tittles-pages-logo">Dream_Me</span> en un sencillo formulario para poder completar tus pedidos</p>
                         <p><a href="registration.php" class="btn btn-info btn-raised btn-block">Registrarse</a></p>   
                    </article>
                 </div>

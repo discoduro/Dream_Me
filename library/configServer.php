@@ -1,5 +1,5 @@
 <?php
-define("USER", "root");
-define("SERVER", "localhost");
+define("SERVER", "srvdreamme.mysql.database.azure.com");
+define("USER", "Administrador");
 define("BD", "store");
-define("PASS", "");
+define("PASS", "Azure.comsrv");
