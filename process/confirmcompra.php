@@ -17,7 +17,7 @@ if(mysqli_num_rows($verdata)>=1){
   if(!empty($comprobanteType)){
     if($comprobanteType=="image/jpeg" || $comprobanteType=="image/png"){
       if(($comprobanteSize/1024)<=$comprobanteMaxSize){
-        chmod($comprobanteDir, 0777); // chmod comando de linux para asignar permisos de lectura y escritura.
+        chmod($comprobanteDir, 0777);
         switch ($comprobanteType) {
           case 'image/jpeg':
             $extPicture=".jpg";

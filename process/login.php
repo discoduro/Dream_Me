@@ -11,7 +11,7 @@
           $verAdmin=ejecutarSQL::consultar("SELECT * FROM administrador WHERE Nombre='$nombre' AND Clave='$clave'");
             $AdminC=mysqli_num_rows($verAdmin);
             if($AdminC>0){
-                $filaU=mysqli_fetch_array($verAdmin, MYSQLI_ASSOC); // mysqli_assoc devuelve un array asociativo representando a la fila obtenida del conjunto de resultados, donde cada clave del array representa el nombre de una de las columnas de éste; o NULL si no hubieran más filas en dicho conjunto de resultados.
+                $filaU=mysqli_fetch_array($verAdmin, MYSQLI_ASSOC);
                 $_SESSION['nombreAdmin']=$nombre;
                 $_SESSION['claveAdmin']=$clave;
                 $_SESSION['UserType']="Admin";
