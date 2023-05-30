@@ -3,17 +3,14 @@
 class ejecutarSQL {
     public static function conectar(){
         try {           
-            if(!$conn = mysqli_real_conection(SERVER, USER, PASS, BD, PORT)){
-            $conn = mysqli_init();
-            mysqli_ssl_set($conn,NULL,NULL, "assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-            mysqli_real_connect($conn, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', 3306, MYSQLI_CLIENT_SSL);
-            if (mysqli_connect_errno()) {
-                die('Failed to connect to MySQL: '.mysqli_connect_error());
-            }  
-        }        
-        } catch (Exception $e) {
-            die($e->getMessage());
-        } 
+            $mysqli = new mysqli($host, $usuario, $contrasenia, $base_de_datos);
+                if ($mysqli->connect_errno) {
+             echo "Falló la conexión a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+}
+        }  
+        catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+        }
         /* Codificar la información de la base de datos a UTF8*/
         mysqli_set_charset($conn, "utf8");
         return $conn;  
