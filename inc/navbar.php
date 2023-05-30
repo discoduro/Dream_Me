@@ -1,6 +1,7 @@
 <?php 
     session_start(); // Iniciando Sesion 
     error_reporting(E_PARSE); // Desactivar notificaciones de error
+    prueba = ejecutarSQL::conectar;
 ?>
 <nav id="navbar-auto-hidden">
         <div class="row hidden-xs">
