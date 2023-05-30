@@ -1,7 +1,6 @@
 <?php 
     session_start(); // Iniciando Sesion 
     error_reporting(E_PARSE); // Desactivar notificaciones de error
-    // prueba = ejecutarSQL::conectar;
 ?>
 <nav id="navbar-auto-hidden">
         <div class="row hidden-xs">
@@ -12,7 +11,7 @@
               <div class="contenedor-tabla pull-right">
                 <div class="contenedor-tr">
                   <a href="index.php" class="table-cell-td">Inicio</a>
-                  <a href="index.php" class="table-cell-td">Productos</a>
+                  <a href="product.php" class="table-cell-td">Productos</a>
                   <?php
                       if(!$_SESSION['nombreAdmin']==""){ // $_SESSION['nombreAdmin'] verifica si existe la variable de sesión nombreAdmin
                           echo ' 
