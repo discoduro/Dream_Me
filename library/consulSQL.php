@@ -3,12 +3,14 @@
 class ejecutarSQL {
     public static function conectar(){
         try {           
+            if(!$conn = mysqli_real_conection(SERVER, USER, PASS, BD, PORT)){
             $conn = mysqli_init();
             mysqli_ssl_set($conn,NULL,NULL, "assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
             mysqli_real_connect($conn, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', 3306, MYSQLI_CLIENT_SSL);
             if (mysqli_connect_errno()) {
                 die('Failed to connect to MySQL: '.mysqli_connect_error());
-            }          
+            }  
+        }        
         } catch (Exception $e) {
             die($e->getMessage());
         } 
