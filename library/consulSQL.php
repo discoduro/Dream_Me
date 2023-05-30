@@ -1,16 +1,13 @@
 <?php
 /* Clase para ejecutar las consultas a la Base de Datos*/
 class ejecutarSQL {
-    public static function conectar(){
-        try {           
-            $mysqli = new mysqli($host, $usuario, $contrasenia, $base_de_datos);
-                if ($mysqli->connect_errno) {
-             echo "Falló la conexión a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    public static function conectar(){           
+            $conn = new mysqli($host, $usuario, $contrasenia, $base_de_datos);
+            $conn = mysqli_connect(SERVER, USER, PASS, BD);
+
+                if ($conn->connect_errno) {
+             echo "Falló la conexión a MySQL: (" . $conn->connect_errno . ") " . $conn->connect_error;
 }
-        }  
-        catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
-        }
         /* Codificar la información de la base de datos a UTF8*/
         mysqli_set_charset($conn, "utf8");
         return $conn;  
