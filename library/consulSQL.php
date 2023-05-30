@@ -5,7 +5,7 @@ class ejecutarSQL {
         if(!$conn =  mysqli_real_connect(SERVER,USER,BD,PASS)){
           $conn = mysqli_init();
         mysqli_ssl_set($conn,NULL,NULL, "../assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-        mysqli_real_connect($conn, 'srvdreamme.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', 3306, MYSQLI_CLIENT_SSL);
+        mysqli_real_connect($conn, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', MYSQLI_CLIENT_SSL);
         if (mysqli_connect_errno()) {
         die('Failed to connect to MySQL: '.mysqli_connect_error());
         }
