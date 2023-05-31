@@ -2,49 +2,23 @@
 /* Clase para ejecutar las consultas a la Base de Datos*/
 class ejecutarSQL {
 
+        
+
     public static function conectar(){
+        if(!$conn =  mysqli_real_connect(SERVER,USER,BD,PASS)){
+            $conn = mysqli_init();
+            mysqli_ssl_set($conn,NULL,NULL, "../assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+            mysqli_real_connect($conn, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', 3306, null, MYSQLI_CLIENT_SSL);
 
-        $servername = "bdsrvdream.mysql.database.azure.com";
-        $username = "Administrador";
-        $password = "Azure.comsrv";
-        $database = "store";
-        $ssl_ca = "/assets/img/DigiCertGlobalRootCA.crt.pem";
+            if (mysqli_connect_errno()) {
+            die('Failed to connect to MySQL: '.mysqli_connect_error());
+            }
+        }
 
- 
-        try {
-            $options = array(
-                PDO::MYSQL_ATTR_SSL_CA => $ssl_ca
-            );
-            $dsn = "mysql:host=$servername;dbname=$database;charset=utf8mb4";
-            $conn = new PDO($dsn, $username, $password, $options);
-            
-            // Establecer opciones adicionales si es necesario
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
-            // Ejecutar consultas, etc.
-            
-        } catch (PDOException $e) {
-            die("Error de conexión: " . $e->getMessage());
-        } 
-
-        return $conn;
+        /* Codificar la información de la base de datos a UTF8*/
+        mysqli_set_charset($conn, "utf8");
+        return $conn;  
     }
-
-    // public static function conectar(){
-    //     if(!$conn =  mysqli_real_connect(SERVER,USER,BD,PASS)){
-    //         $conn = mysqli_init();
-    //         mysqli_ssl_set($conn,NULL,NULL, "../assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-    //         mysqli_real_connect($conn, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', 3306, null, MYSQLI_CLIENT_SSL);
-
-    //         if (mysqli_connect_errno()) {
-    //         die('Failed to connect to MySQL: '.mysqli_connect_error());
-    //         }
-    //     }
-
-    //     /* Codificar la información de la base de datos a UTF8*/
-    //     mysqli_set_charset($conn, "utf8");
-    //     return $conn;  
-    // }
 
 
 
