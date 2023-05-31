@@ -2,19 +2,24 @@
 /* Clase para ejecutar las consultas a la Base de Datos*/
 class ejecutarSQL {
         public static function conectar(){
-            define("SERVER", "bdsrvdream.mysql.database.azure.com");
-            define("USER", "Administrador");
-            define("BD", "store");
-            define("PASS", "Azure.comsrv");
+            // Crear una conexión SSL
+            $conn = new mysqli($servername, $username, $password, $database, null, $ssl_ca);
 
-            $con = new mysqli(SERVER,USER,BD,PASS);
-            
-            if($con->connect_error){
+            // Verificar la conexión
+            if ($conn->connect_error) {
                 die("Error de conexión: " . $conn->connect_error);
             }
 
-            return $con;
+            // Habilitar SSL
+            $conn->ssl_set($ssl_key, $ssl_cert, $ssl_ca, null, null);
+
+            // Ejecutar consultas, etc.
+
+            // Cerrar la conexión
+            $conn->close();
         }
+        
+    
 
 
     // public static function conectar(){
