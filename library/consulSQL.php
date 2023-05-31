@@ -3,6 +3,14 @@
 class ejecutarSQL {
 
     public static function conectar(){
+
+        $servername = "bdsrvdream.mysql.database.azure.com";
+        $username = "Administrador@bdsrvdream";
+        $password = "Azure.comsrv";
+        $database = "store";
+        $ssl_ca = "/assets/img/DigiCertGlobalRootCA.crt.pem";
+
+ 
         try {
             $options = array(
                 PDO::MYSQL_ATTR_SSL_CA => $ssl_ca
