@@ -1,6 +1,6 @@
 <?php
-$hostname = "bdsrvdream.mysql.database.azure.com";
-$port = "3306";
-$database = "store";
-$username = "Administrador";
-$password = "Azure.comsrv";
+define("SERVER", "bdsrvdream.mysql.database.azure.com");
+define("USER", "Administrador");
+define("BD", "store");
+define("PASS", "Azure.comsrv");
+
