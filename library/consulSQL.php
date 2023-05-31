@@ -1,42 +1,21 @@
 <?php
 /* Clase para ejecutar las consultas a la Base de Datos*/
 class ejecutarSQL {
-        public static function conectar(){
-            // Crear una conexión SSL
-            $conn = new mysqli($servername, $username, $password, $database, null, $ssl_ca);
+    public static function conectar(){
+        if(!$conn =  mysqli_real_connect(SERVER,USER,BD,PASS)){
+            $conn = mysqli_init();
+            mysqli_ssl_set($conn,NULL,NULL, "../assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+            mysqli_real_connect($conn, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', 3306, null, MYSQLI_CLIENT_SSL);
 
-            // Verificar la conexión
-            if ($conn->connect_error) {
-                die("Error de conexión: " . $conn->connect_error);
+            if (mysqli_connect_errno()) {
+            die('Failed to connect to MySQL: '.mysqli_connect_error());
             }
-
-            // Habilitar SSL
-            $conn->ssl_set($ssl_key, $ssl_cert, $ssl_ca, null, null);
-
-            // Ejecutar consultas, etc.
-
-            // Cerrar la conexión
-            $conn->close();
         }
-        
-    
 
-
-    // public static function conectar(){
-    //     if(!$conn =  mysqli_real_connect(SERVER,USER,BD,PASS)){
-    //       $conn = mysqli_init();
-    //     mysqli_ssl_set($conn,NULL,NULL, "../assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-    //     mysqli_real_connect($conn, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', MYSQLI_CLIENT_SSL);
-    //     if (mysqli_connect_errno()) {
-    //     die('Failed to connect to MySQL: '.mysqli_connect_error());
-    //     }
-    //     }
-
-        
-    //     /* Codificar la información de la base de datos a UTF8*/
-    //     mysqli_set_charset($conn, "utf8");
-    //     return $conn;  
-    // }
+        /* Codificar la información de la base de datos a UTF8*/
+        mysqli_set_charset($conn, "utf8");
+        return $conn;  
+    }
     public static function consultar($query) {
         if (!$consul = mysqli_query(ejecutarSQL::conectar(), $query)) {
             echo 'Error en la consulta SQL ejecutada';
@@ -44,6 +23,7 @@ class ejecutarSQL {
         return $consul;
     }  
 }
+
 /* Clase para hacer las consultas Insertar, Eliminar y Actualizar */
 class consultasSQL{
     public static function InsertSQL($tabla, $campos, $valores) {
