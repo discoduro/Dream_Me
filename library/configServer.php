@@ -1,8 +1,6 @@
 <?php
-//  $servername = "bdsrvdream.mysql.database.azure.com";
-//  $username = "Administrador@bdsrvdream";
-//  $password = "Azure.comsrv";
-//  $database = "store";
-//  $ssl_ca = "../assets/img/DigiCertGlobalRootCA.crt.pem";
-
- 
+$hostname = "bdsrvdream.mysql.database.azure.com";
+$port = "3306";
+$database = "store";
+$username = "Administrador";
+$password = "Azure.comsrv";

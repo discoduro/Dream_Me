@@ -2,11 +2,7 @@
 /* Clase para ejecutar las consultas a la Base de Datos*/
 class ejecutarSQL {
     public static function conectar(){
-                $hostname = "bdsrvdream.mysql.database.azure.com";
-                $port = "3306";
-                $database = "store";
-                $username = "Administrador";
-                $password = "Azure.comsrv";
+                
                 $options = array(
                     PDO::MYSQL_ATTR_SSL_CA => 'assets/img/DigiCertGlobalRootCA.crt.pem'
                 );
@@ -19,12 +15,12 @@ class ejecutarSQL {
 
 
 
-    // public static function consultar($query) {
-    //     if (!$consul = mysqli_query(ejecutarSQL::conectar(), $query)) {
-    //         echo 'Error en la consulta SQL ejecutada';
-    //     }
-    //     return $consul;
-    // }  
+    public static function consultar($query) {
+        if (!$consul = mysqli_query(ejecutarSQL::conectar(), $query)) {
+            echo 'Error en la consulta SQL ejecutada';
+        }
+        return $consul;
+    }  
 }
 
 /* Clase para hacer las consultas Insertar, Eliminar y Actualizar */
