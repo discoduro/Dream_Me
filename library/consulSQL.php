@@ -2,10 +2,10 @@
 /* Clase para ejecutar las consultas a la Base de Datos*/
 class ejecutarSQL {
     public static function conectar(){
-        $conn = mysqli_init();
-        mysqli_ssl_set($conn,NULL,NULL, "/assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-        mysqli_real_connect($conn, 'srvdreamme02.mysql.database.azure.com', 'useradmin', 'bddreamme.1', 'store', 3306, MYSQLI_CLIENT_SSL);
         if(!$conn=  mysqli_connect(SERVER,USER,PASS,BD)){
+            $conn = mysqli_init();
+            mysqli_ssl_set($conn,NULL,NULL, "/assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+            mysqli_real_connect($conn, 'srvdreamme02.mysql.database.azure.com', 'useradmin', 'bddreamme.1', 'store', 3306, MYSQLI_CLIENT_SSL);
             echo "Error en el servidor, verifique sus datos";
         }
         /* Codificar la información de la base de datos a UTF8*/
