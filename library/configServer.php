@@ -1,5 +1,5 @@
 <?php
 define("USER", "root");
-define("SERVER", "localhost");
+define("SERVER", "bdsrvdream.mysql.database.azure.com");
 define("BD", "store");
-define("PASS", "");
+define("PASS", "dbdream.1");
