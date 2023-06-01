@@ -1,16 +1,20 @@
 <?php
 /* Clase para ejecutar las consultas a la Base de Datos*/
-class ejecutarSQL {
-        public static function connection(){
-            $servername = "bdsrvdream.mysql.database.azure.com";
+    class ejecutarSQL{
+        public static function conectar(){
+            $hostname = "srvdreamme02.mysql.database.azure.com";
+            $port = "3306";
             $database = "store";
-            $username = "Administrador";
-            $password = "Azure.comsrv";
-			$pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8",$username,$password);
+            $username = "useradmin";
+            $password = "bddream.01";
+            $options = array(
+                PDO::MYSQL_ATTR_SSL_CA => 'assets/img/DigiCertGlobalRootCA.crt.pem'
+            );
+			$pdo = new PDO("mysql:host=$hostname;port=$port;dbname=$database;charset=utf8",$username,$password,$options);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return $pdo;
 		}
-	}
+	
 
     // public static function conectar(){
     //     if(!$conn =  mysqli_real_connect(SERVER,USER,BD,PASS)){ 
