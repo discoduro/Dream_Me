@@ -1,13 +1,13 @@
 <?php
 /* Clase para ejecutar las consultas a la Base de Datos*/
     class ejecutarSQL{
-        public static function conectar(){
-        $conn = mysqli_init();
-        mysqli_ssl_set($conn,NULL,NULL, "/assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-        mysqli_real_connect($conn, 'srvdreamme02.mysql.database.azure.com', 'useradmin', 'dbdream.01', 'store', 3306, MYSQLI_CLIENT_SSL);
-        if (mysqli_connect_errno()) {
-        die('Failed to connect to MySQL: '.mysqli_connect_error());
-        }
+            public static function conectar(){
+            $conn = mysqli_init();
+            mysqli_ssl_set($conn,NULL,NULL, "/assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+            mysqli_real_connect($conn, 'srvdreamme02.mysql.database.azure.com', 'useradmin', 'dbdream.01', 'store', 3306, MYSQLI_CLIENT_SSL);
+            if (mysqli_connect_errno()) {
+            die('Failed to connect to MySQL: '.mysqli_connect_error());
+            }
         }
 
     // public static function conectar(){
