@@ -2,7 +2,10 @@
 /* Clase para ejecutar las consultas a la Base de Datos*/
 class ejecutarSQL {
     public static function conectar(){
-        if(!$con=  mysqli_connect(SERVER,USER,PASS,BD)){
+        $conn = mysqli_init();
+        mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+        // mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL);
+        if(!$conn=  mysqli_connect(SERVER,USER,PASS,BD)){
             echo "Error en el servidor, verifique sus datos";
         }
         /* Codificar la información de la base de datos a UTF8*/
