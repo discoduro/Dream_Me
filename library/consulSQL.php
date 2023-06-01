@@ -4,7 +4,7 @@ class ejecutarSQL {
     public static function conectar(){
         $conn = mysqli_init();
         mysqli_ssl_set($conn,NULL,NULL, "/assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-        mysqli_real_connect($conn, 'srvdreamme02.mysql.database.azure.com', 'useradmin', 'bddreamme.1', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL);
+        mysqli_real_connect($conn, 'srvdreamme02.mysql.database.azure.com', 'useradmin', 'bddreamme.1', 'store', 3306, MYSQLI_CLIENT_SSL);
         if(!$conn=  mysqli_connect(SERVER,USER,PASS,BD)){
             echo "Error en el servidor, verifique sus datos";
         }
