@@ -1,6 +1,6 @@
 <?php
-define("SERVER", "srvdreamme02.mysql.database.azure.com");
-define("USER", "useradmin");
-define("PASS", "bddreamme.1");
-define("BD", "store");
+define("SERVER", "localhost");
+define("USER", "id20768935_srvdreame");
+define("PASS", "Websrvdream2023*");
+define("BD", "id20768935_store");
 
