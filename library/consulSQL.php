@@ -1,16 +1,32 @@
 <?php
 /* Clase para ejecutar las consultas a la Base de Datos*/
-class ejecutarSQL {
-    public static function conectar(){
-        if(!$conn=  mysqli_connect(SERVER,USER,PASS,BD)){
-            echo "Error en el servidor, verifique sus datos";
-        }
-        /* Codificar la información de la base de datos a UTF8*/
-        mysqli_set_charset($conn, "utf8");
-        return $conn;  
-    }
+class ejecutarSQL{
+        public static function connection(){
+            $hostname = "appwebsrv.mysql.database.azure.com";
+            $port = "3306";
+            $database = "dbappwebinv";
+            $username = "soporte";
+            $password = "Help.2023*";
+            $options = array(
+                PDO::MYSQL_ATTR_SSL_CA => 'assets/db/DigiCertGlobalRootCA.crt.pem'
+            );
+			$pdo = new PDO("mysql:host=$hostname;port=$port;dbname=$database;charset=utf8",$username,$password,$options);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			return $pdo;
+		}
+	 
+
+
+    // public static function conection(){
+    //     if(!$conn=  mysqli_connect(SERVER,USER,PASS,BD)){
+    //         echo "Error en el servidor, verifique sus datos";
+    //     }
+    //     /* Codificar la información de la base de datos a UTF8*/
+    //     mysqli_set_charset($conn, "utf8");
+    //     return $conn;  
+    // }
     public static function consultar($query) {
-        if (!$consul = mysqli_query(ejecutarSQL::conectar(), $query)) {
+        if (!$consul = mysqli_query(ejecutarSQL::connection(), $query)) {
             echo 'Error en la consulta SQL ejecutada';
         }
         return $consul;
