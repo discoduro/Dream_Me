@@ -2,20 +2,12 @@
 /* Clase para ejecutar las consultas a la Base de Datos*/
     class ejecutarSQL {
         public static function conectar(){
-            $conn = mysqli_init();
-            mysqli_real_connect($conn, $SERVER, $USER, $store, $PASS, 3306);
-            if (mysqli_connect_errno($conn)) {
-            die('Failed to connect to MySQL: '.mysqli_connect_error());
+            if(!$con=  mysqli_connect(SERVER,USER,PASS,BD)){
+                echo "Error en el servidor, verifique sus datos";
             }
-
-
-
-            // if(!$con=  mysqli_connect(SERVER,USER,PASS,BD)){
-            //     echo "Error en el servidor, verifique sus datos";
-            // }
-            // /* Codificar la información de la base de datos a UTF8*/
-            // mysqli_set_charset($con, "utf8");
-            return $conn;  
+            /* Codificar la información de la base de datos a UTF8*/
+            mysqli_set_charset($con, "utf8");
+            return $con;  
         }
         public static function consultar($query) {
             if (!$consul = mysqli_query(ejecutarSQL::conectar(), $query)) {
