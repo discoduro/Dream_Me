@@ -1,29 +1,30 @@
-<?php
+<!-- <?php
 /* Clase para ejecutar las consultas a la Base de Datos*/
-class ejecutarSQL {
-    public static function conectar(){
-        if(!$conn =  mysqli_real_connect(SERVER,USER,BD,PASS)){
-        $conn = mysqli_init();
-        mysqli_ssl_set($conn,NULL,NULL, "../assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-        mysqli_real_connect($conn, 'bdsrvdream.mysql.database.azure.com', 'Administrador', 'Azure.comsrv', 'store', 3306, null, MYSQLI_CLIENT_SSL);
-        
-        if (mysqli_connect_errno()) {
-        die('Failed to connect to MySQL: '.mysqli_connect_error());
-        }
-        }
+    class ejecutarSQL {
+        public static function conectar(){
+            $conn = mysqli_init();
+            mysqli_real_connect($conn, $SERVER, $USER, $store, $PASS, 3306);
+            if (mysqli_connect_errno($conn)) {
+            die('Failed to connect to MySQL: '.mysqli_connect_error());
+            }
 
-        
-        /* Codificar la información de la base de datos a UTF8*/
-        mysqli_set_charset($conn, "utf8");
-        return $conn;  
-    }
-    public static function consultar($query) {
-        if (!$consul = mysqli_query(ejecutarSQL::conectar(), $query)) {
-            echo 'Error en la consulta SQL ejecutada';
+
+
+            // if(!$con=  mysqli_connect(SERVER,USER,PASS,BD)){
+            //     echo "Error en el servidor, verifique sus datos";
+            // }
+            // /* Codificar la información de la base de datos a UTF8*/
+            // mysqli_set_charset($con, "utf8");
+            return $conn;  
         }
-        return $consul;
-    }  
-}
+        public static function consultar($query) {
+            if (!$consul = mysqli_query(ejecutarSQL::conectar(), $query)) {
+                echo 'Error en la consulta SQL ejecutada';
+            }
+            return $consul;
+        }  
+    }
+    
 /* Clase para hacer las consultas Insertar, Eliminar y Actualizar */
 class consultasSQL{
     public static function InsertSQL($tabla, $campos, $valores) {
