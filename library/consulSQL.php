@@ -3,6 +3,7 @@
     class ejecutarSQL {
         public static function conectar(){
             $conn = mysqli_init();
+            mysqli_ssl_set($conn,NULL,NULL, "/assets/img/DigiCertGlobalRootCA.crt.pem", NULL, NULL) ;
             mysqli_real_connect($conn, $hostname, $username, $password, $database, 3306);
             if (mysqli_connect_errno($conn)) {
             die('Failed to connect to MySQL: '.mysqli_connect_error());
