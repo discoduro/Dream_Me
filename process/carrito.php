@@ -3,7 +3,7 @@ error_reporting(E_PARSE);
 include '../library/configServer.php';
 include '../library/consulSQL.php';
 session_start();
-$codigo=consultasSQL::clean_string($_POST['codigo']);
+$codigo=consultasSQL::clean_string($_POST['codigo']); // Clean string es  una funcion que limpia los datos que se envian por el metodo POST
 $cantidad=consultasSQL::clean_string($_POST['cantidad']);
 if(empty($_SESSION['carro'][$codigo]))
 {
