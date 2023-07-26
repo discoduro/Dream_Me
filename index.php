@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Inicio</title>
     <?php include './inc/link.php'; ?>
@@ -7,7 +8,7 @@
 
 <body id="container-page-index">
     <?php include './inc/navbar.php'; ?>
-    
+
     <section id="slider-store" class="carousel slide" data-ride="carousel" style="padding: 0;">
 
         <!-- Indicators -->
@@ -49,63 +50,67 @@
             <span class="sr-only">Next</span>
         </a>
     </section>
-    
 
-    <section id="new-prod-index">    
-         <div class="container">
+
+    <section id="new-prod-index">
+        <div class="container">
             <div class="page-header">
                 <h1>Últimos <small>productos agregados</small></h1>
             </div>
             <div class="row">
-              	<?php
-                  include 'library/configServer.php';
-                  include 'library/consulSQL.php';
-                  $consulta= ejecutarSQL::consultar("SELECT * FROM producto WHERE Stock > 0 AND Estado='Activo' ORDER BY id DESC LIMIT 7");
-                  $totalproductos = mysqli_num_rows($consulta); // mysqli_num_rows($consulta) obtiene el numero de filas retornadas por la consulta  
-                  if($totalproductos>0){
-                      while($fila=mysqli_fetch_array($consulta, MYSQLI_ASSOC)){ // mysqli_fetch_array($consulta, MYSQLI_ASSOC) obtiene una fila de resultados como un array asociativo, numérico, o ambos   
-                ?>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                     <div class="thumbnail rounded-4">
-                       <img class="img-product" src="assets/img-products/<?php if($fila['Imagen']!="" && is_file("./assets/img-products/".$fila['Imagen'])){ echo $fila['Imagen']; }else{ echo "default.png"; } ?>">     
-                       <div class="caption">
-                       		<h3><?php echo $fila['Marca']; ?></h3>
-                            <p><?php echo $fila['NombreProd']; ?></p>
-                            <?php if($fila['Descuento']>0): ?>
-                             <p>
-                             <?php
-                             $pref=number_format($fila['Precio']-($fila['Precio']*($fila['Descuento']/100)), 2, '.', '');
-                             echo $fila['Descuento']."% descuento: $".$pref; 
-                             ?>
-                             </p>
-                             <?php else: ?>
-                              <p>$<?php echo $fila['Precio']; ?></p>
-                             <?php endif; ?>
-                        <p class="text-center">
-                            <a href="infoProd.php?CodigoProd=<?php echo $fila['CodigoProd']; ?>" class="btn btn-primary btn-sm btn-raised btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
-                        </p>
-                       </div>
-                     </div>
-                </div>     
                 <?php
-                     }   
-                  }else{
-                      echo '<h2>No hay productos registrados en la tienda</h2>';
-                  }  
-              	?>  
+                include 'library/configServer.php';
+                include 'library/consulSQL.php';
+                $consulta = ejecutarSQL::consultar("SELECT * FROM producto WHERE Stock > 0 AND Estado='Activo' ORDER BY id DESC LIMIT 7");
+                $totalproductos = mysqli_num_rows($consulta); // mysqli_num_rows($consulta) obtiene el numero de filas retornadas por la consulta  
+                if ($totalproductos > 0) {
+                    while ($fila = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) { // mysqli_fetch_array($consulta, MYSQLI_ASSOC) obtiene una fila de resultados como un array asociativo, numérico, o ambos   
+                ?>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="thumbnail rounded-4">
+                                <img class="img-product" src="assets/img-products/<?php if ($fila['Imagen'] != "" && is_file("./assets/img-products/" . $fila['Imagen'])) {
+                                                                                        echo $fila['Imagen'];
+                                                                                    } else {
+                                                                                        echo "default.png";
+                                                                                    } ?>">
+                                <div class="caption">
+                                    <h3><?php echo $fila['Marca']; ?></h3>
+                                    <p><?php echo $fila['NombreProd']; ?></p>
+                                    <?php if ($fila['Descuento'] > 0) : ?>
+                                        <p>
+                                            <?php
+                                            $pref = number_format($fila['Precio'] - ($fila['Precio'] * ($fila['Descuento'] / 100)), 2, '.', '');
+                                            echo $fila['Descuento'] . "% descuento: $" . $pref;
+                                            ?>
+                                        </p>
+                                    <?php else : ?>
+                                        <p>$<?php echo $fila['Precio']; ?></p>
+                                    <?php endif; ?>
+                                    <p class="text-center">
+                                        <a href="infoProd.php?CodigoProd=<?php echo $fila['CodigoProd']; ?>" class="btn btn-primary btn-sm btn-raised btn-block"><i class="fa fa-plus"></i>&nbsp; Detalles</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                <?php
+                    }
+                } else {
+                    echo '<h2>No hay productos registrados en la tienda</h2>';
+                }
+                ?>
             </div>
-         </div>
+        </div>
     </section>
     <section id="reg-info-index">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 text-center">
-                   <article style="margin-top:5%;">
+                    <article style="margin-top:5%;">
                         <p><i class="fa fa-users fa-4x"></i></p>
                         <h3>Registrate</h3>
                         <p>Registrate como cliente de <span class="tittles-pages-logo">Dream_Me</span> en un sencillo formulario para poder completar tus pedidos</p>
-                        <p><a href="registration.php" class="btn btn-info btn-raised btn-block">Registrarse</a></p>   
-                   </article>
+                        <p><a href="registration.php" class="btn btn-info btn-raised btn-block">Registrarse</a></p>
+                    </article>
                 </div>
 
                 <div class="col-xs-12 col-sm-6">
@@ -117,4 +122,5 @@
 
     <?php include './inc/footer.php'; ?>
 </body>
+
 </html>

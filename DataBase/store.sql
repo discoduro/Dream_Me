@@ -18,11 +18,12 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Base de datos: `store`
---
-
--- --------------------------------------------------------
+# DROP DATABASE STORE;
+-- -----------------------------------------------------
+-- ESTRUCTURA STORE
+-- -----------------------------------------------------
+CREATE DATABASE STORE DEFAULT CHARACTER SET utf8 ;
+USE STORE ;
 
 --
 -- Estructura de tabla para la tabla `administrador`

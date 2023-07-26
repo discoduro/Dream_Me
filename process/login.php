@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include '../library/configServer.php';
-    include '../library/consulSQL.php';
+    require_once '../library/configServer.php';
+    require_once '../library/consulSQL.php';
 
     $nombre=consultasSQL::clean_string($_POST['nombre-login']);
     $clave=consultasSQL::clean_string(md5($_POST['clave-login']));
